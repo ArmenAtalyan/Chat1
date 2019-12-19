@@ -34,7 +34,7 @@ public class ChatMember {
                 case(2):
                     Thread.sleep(1000);
                     System.out.println("Exit chat.");
-                    throw new MyExeption("");
+                    throw new MyExeption();
             }
         }
         for(int i = 0; i < memNum; i++){
