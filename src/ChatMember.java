@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class ChatMember {
 
-    public void memberCall()throws InterruptedException{
+    public void memberCall()throws InterruptedException, MyExeption{
         Format f = new SimpleDateFormat("mm-dd-yyyy hh:mm:ss");
         String data = f.format(new Date());
         int memNum = 5;
@@ -19,8 +19,11 @@ public class ChatMember {
             Scanner scanner1 = new Scanner(System.in);
             int num = scanner1.nextInt();
 
-            if(num > 2 || num < 1)
+            if(num > 2 || num < 1){
                 System.out.println("Invalid input.");
+                i -= 1;
+            }
+
             switch(num){
                 case(1):
                     Thread.sleep(1000);
@@ -31,8 +34,7 @@ public class ChatMember {
                 case(2):
                     Thread.sleep(1000);
                     System.out.println("Exit chat.");
-                    i = 5;
-                    break;
+                    throw new MyExeption("");
             }
         }
         for(int i = 0; i < memNum; i++){
