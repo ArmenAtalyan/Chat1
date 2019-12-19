@@ -49,8 +49,6 @@ public class User {
 
     @Override
     public String toString() {
-        return date + " (date) " + "member " + id +
-
-                "\n" + name + ": " + text;
+        return date + " (date) " + "member " + id +  "\n" + name + ": " + text;
     }
 }
