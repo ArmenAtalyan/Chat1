@@ -15,6 +15,7 @@ public class ChatMember {
         while(memberSum > 0){
            int index = 1 + (int)(Math.random() * memberSum - 1);
            if(memberNumList[index] == null) {
+               Thread.sleep(1000);
                 System.out.println("\n" + "Enter your name.");
                 Scanner sc2 = new Scanner(System.in);
                 String memberNume = sc2.nextLine();
@@ -34,7 +35,8 @@ public class ChatMember {
 
 
     public int workWithMemberCall(int forAct, int index, String data, int memberSum, String[] memberNumList) throws InterruptedException{
-        if(forAct > 2 || forAct < 1){
+
+        if(forAct < 1 || forAct > 2){
             System.out.println("Invalid input.");
             Thread.sleep(1000);
             System.out.println("\n" + "Press again number for action.");
