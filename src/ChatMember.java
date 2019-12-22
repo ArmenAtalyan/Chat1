@@ -9,14 +9,21 @@ public class ChatMember {
         Format f = new SimpleDateFormat("mm-dd-yyyy hh:mm:ss");
         String data = f.format(new Date());
         Scanner sc1 = new Scanner(System.in);
-        int memberNum = sc1.nextInt();
+        int memberSum = sc1.nextInt();
+        String[] memberNumList = new String[memberSum];
 
-        String[] text = new String[memberNum];
-
-        for(int i = 0; i < memberNum; i++){
-            System.out.println("\n" + "Enter your name.");
-            Scanner sc2 = new Scanner(System.in);
-            String memberName = sc2.nextLine();
+        while(memberSum > 0){
+           int index = 1 + (int)(Math.random() * memberSum - 1);
+           if(memberNumList[index] == null) {
+                System.out.println("\n" + "Enter your name.");
+                Scanner sc2 = new Scanner(System.in);
+                String memberNume = sc2.nextLine();
+                memberNumList[index] = memberNume;
+            }
+           else{
+               Thread.sleep(1000);
+               System.out.println("\n" + memberNumList[index] + " is typing again.");
+           }
             Thread.sleep(1000);
             System.out.println("\n" + "Press number for action.");
             Scanner sc3 = new Scanner(System.in);
@@ -24,7 +31,11 @@ public class ChatMember {
 
             if(forAct > 2 || forAct < 1){
                 System.out.println("Invalid input.");
-                i -= 1;
+                Thread.sleep(1000);
+                System.out.println("\n" + "Press number for action.");
+                Scanner sc4 = new Scanner(System.in);
+                forAct = sc4.nextInt();
+                index -= 1;
             }
 
             switch(forAct){
@@ -32,14 +43,16 @@ public class ChatMember {
                     Thread.sleep(1000);
                     System.out.println("Send message.");
                     Scanner scanner3 = new Scanner(System.in);
-                    text[i] = scanner3.nextLine();
+                    String messageText = scanner3.nextLine();
 
-                        User user = new User(i+1, data, memberName, text[i]);
+                        User user = new User(index, data, memberNumList[index], messageText);
                         System.out.println(user);
                     break;
                 case(2):
                     Thread.sleep(1000);
                     System.out.println("Exit chat.");
+                    memberNumList[index] = null;
+                    memberSum --;
             }
         }
     }
