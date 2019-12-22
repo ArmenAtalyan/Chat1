@@ -5,41 +5,42 @@ import java.util.Scanner;
 
 public class ChatMember {
 
-    public void memberCall()throws InterruptedException, MyExeption{
+    public void memberCall()throws InterruptedException{
         Format f = new SimpleDateFormat("mm-dd-yyyy hh:mm:ss");
         String data = f.format(new Date());
-        int memNum = 5;
+        Scanner sc1 = new Scanner(System.in);
+        int memberNum = sc1.nextInt();
 
-        String[] name = {"Vardan", "Lusine", "Matrin", "Nona", "Narek"};
-        String[] text = new String[memNum];
+        String[] text = new String[memberNum];
 
-        for(int i = 0; i < memNum; i++){
+        for(int i = 0; i < memberNum; i++){
+            System.out.println("\n" + "Enter your name.");
+            Scanner sc2 = new Scanner(System.in);
+            String memberName = sc2.nextLine();
             Thread.sleep(1000);
             System.out.println("\n" + "Press number for action.");
-            Scanner scanner1 = new Scanner(System.in);
-            int num = scanner1.nextInt();
+            Scanner sc3 = new Scanner(System.in);
+            int forAct = sc3.nextInt();
 
-            if(num > 2 || num < 1){
+            if(forAct > 2 || forAct < 1){
                 System.out.println("Invalid input.");
                 i -= 1;
             }
 
-            switch(num){
+            switch(forAct){
                 case(1):
                     Thread.sleep(1000);
                     System.out.println("Send message.");
-                    Scanner scanner2 = new Scanner(System.in);
-                    text[i] = scanner2.nextLine();
+                    Scanner scanner3 = new Scanner(System.in);
+                    text[i] = scanner3.nextLine();
+
+                        User user = new User(i+1, data, memberName, text[i]);
+                        System.out.println(user);
                     break;
                 case(2):
                     Thread.sleep(1000);
                     System.out.println("Exit chat.");
-                    throw new MyExeption();
             }
-        }
-        for(int i = 0; i < memNum; i++){
-            User user = new User(i+1, data, name[i], text[i]);
-            System.out.println(user);
         }
     }
 }
