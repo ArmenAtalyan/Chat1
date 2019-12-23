@@ -26,19 +26,16 @@ public class ChatMember {
                Thread.sleep(1000);
                System.out.println("\n" + memberNameList[index] + " is typing again.");
            }
-
             System.out.println("\n" + "Press number for action.");
             Scanner sc3 = new Scanner(System.in);
             int forAct = sc3.nextInt();
             memberSum = workWithInputNumber(forAct, index, data, memberSum, memberNameList);
-
         }
     }
 
 
     public int workWithInputNumber(int forAct, int index, String data, int memberSum, String[] memberNameList) throws InterruptedException{
-
-        if(forAct < 1 || forAct > 2){
+        while (forAct < 1 || forAct > 2) {
             System.out.println("Invalid input.");
             Thread.sleep(1000);
             System.out.println("\n" + "Press again number for action.");
