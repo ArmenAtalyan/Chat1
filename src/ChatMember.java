@@ -28,6 +28,10 @@ public class ChatMember {
            }
             System.out.println("\n" + "Press number for action.");
             Scanner sc3 = new Scanner(System.in);
+            while (!sc3.hasNextInt()) {
+                System.out.println("That's not a number!");
+                sc3.next();
+            }
             int forAct = sc3.nextInt();
             memberSum = workWithInputNumber(forAct, index, data, memberSum, memberNameList);
         }
@@ -37,6 +41,7 @@ public class ChatMember {
     public int workWithInputNumber(int forAct, int index, String data, int memberSum, String[] memberNameList) throws InterruptedException{
         while (forAct < 1 || forAct > 2) {
             System.out.println("Invalid input.");
+            System.out.println("Input 1 or 2.");
             Thread.sleep(1000);
             System.out.println("\n" + "Press again number for action.");
             Scanner sc4 = new Scanner(System.in);
