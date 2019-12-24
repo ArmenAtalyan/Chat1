@@ -23,29 +23,28 @@ public class ChatMember {
                 System.out.println("\n" + memberNameList[index] + " is typing again.");
             }
             System.out.println("\n" + "Press number for action.");
-            memberSum = workWithInputNumber(sc1.nextInt(), index, user.getDate(), memberSum, memberNameList);
+            memberSum = workWithInputNumber(sc1.next(), index, user.getDate(), memberSum, memberNameList);
         }
     }
 
 
-    public int workWithInputNumber(int forAct, int index, String date, int memberSum, String[] memberNameList) throws InterruptedException {
+    public int workWithInputNumber(String forAct, int index, String date, int memberSum, String[] memberNameList) throws InterruptedException {
 
         Scanner sc4 = new Scanner(System.in);
-        while (forAct < 1 || forAct > 2) {
+        while (!Character.isDigit(forAct.charAt(0)) || Integer.parseInt(forAct) < 1 || Integer.parseInt(forAct) > 2) {
             System.out.println("Invalid input!");
-            sc4.next();
-            forAct = sc4.nextInt();
+            forAct = sc4.nextLine();
         }
 
         switch (forAct) {
-            case (1):
+            case ("1"):
                 System.out.println("Send message.");
                 Scanner scanner3 = new Scanner(System.in);
                 String messageText = scanner3.nextLine();
                 User user = new User(index, date, memberNameList[index], messageText);
                 System.out.println(user);
                 break;
-            case (2):
+            case ("2"):
                 System.out.println("Exit chat.");
                 Thread.sleep(1000);
                 memberNameList[index] = null;
