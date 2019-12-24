@@ -1,16 +1,19 @@
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
 
         private int id;
-        String date;
         private String name;
         private String text;
+        private String date;
+        Format f = new SimpleDateFormat("mm-dd-yyyy hh:mm:ss");
 
-
+    public User(){}
     public User(int id, String date, String name, String text) {
         this.id = id;
-        this.date = date;
+        this.date = f.format(new Date());;
         this.name = name;
         this.text = text;
     }
