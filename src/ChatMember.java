@@ -22,20 +22,20 @@ public class ChatMember {
                 Thread.sleep(1000);
                 System.out.println("\n" + memberNameList[index] + " is typing again.");
             }
-
             System.out.println("\n" + "Press number for action.");
-            Scanner sc3 = new Scanner(System.in);
-            while (!sc3.hasNextInt() || sc3.nextInt() < 1 || sc3.nextInt() > 2) {
-                System.out.println("Invalid input!");
-                sc3.next();
-            }
-            int forAct = sc3.nextInt();
-            memberSum = workWithInputNumber(forAct, index, user.getDate(), memberSum, memberNameList);
+            memberSum = workWithInputNumber(sc1.nextInt(), index, user.getDate(), memberSum, memberNameList);
         }
     }
 
 
     public int workWithInputNumber(int forAct, int index, String date, int memberSum, String[] memberNameList) throws InterruptedException {
+
+        Scanner sc4 = new Scanner(System.in);
+        while (forAct < 1 || forAct > 2) {
+            System.out.println("Invalid input!");
+            sc4.next();
+            forAct = sc4.nextInt();
+        }
 
         switch (forAct) {
             case (1):
