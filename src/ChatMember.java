@@ -22,7 +22,7 @@ public class ChatMember {
                 Thread.sleep(1000);
                 System.out.println("\n" + memberNameList[index] + " is typing again.");
             }
-            System.out.println("\n" + "Press number for action.");
+            System.out.println("1. Send message" + "\n" + "2. Exit chat" + "\n" + "Press number for action.");
             memberSum = workWithInputNumber(sc1.next(), index, user.getDate(), memberSum, memberNameList);
         }
     }
@@ -45,7 +45,7 @@ public class ChatMember {
                 System.out.println(user);
                 break;
             case ("2"):
-                System.out.println("Exit chat.");
+                System.out.println( memberNameList[index] + " Exit chat.");
                 Thread.sleep(1000);
                 memberNameList[index] = null;
                 memberSum--;
