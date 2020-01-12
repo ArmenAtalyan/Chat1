@@ -22,20 +22,20 @@ public class ChatMember {
                 System.out.println("\n" + memberNameList[index] + " is typing.");
             }
             System.out.println("Press number for action.");
-            memberSum = workWithInputNumber(sc1.next(), index, user.getDate(), memberSum, memberNameList);
+            memberSum = handleUserAction(sc1.next(), index, user.getDate(), memberSum, memberNameList);
         }
     }
 
 
-    public int workWithInputNumber(String forAct, int index, String date, int memberSum, String[] memberNameList) {
+    public int handleUserAction(String userAction, int index, String date, int memberSum, String[] memberNameList) {
 
         Scanner sc4 = new Scanner(System.in);
-        while (!Character.isDigit(forAct.charAt(0)) || Integer.parseInt(forAct) < 1 || Integer.parseInt(forAct) > 2) {
+        while (!Character.isDigit(userAction.charAt(0)) || Integer.parseInt(userAction) < 1 || Integer.parseInt(userAction) > 2) {
             System.out.println("Invalid input!");
-            forAct = sc4.nextLine();
+            userAction = sc4.nextLine();
         }
 
-        switch (forAct) {
+        switch (userAction) {
             case ("1"):
                 System.out.println("Send message.");
                 User user = new User(index, date, memberNameList[index], sc4.nextLine());
