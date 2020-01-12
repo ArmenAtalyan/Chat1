@@ -15,8 +15,8 @@ public class ChatMember {
             int index = 1+(int)(Math.random()*memberSum - 1);
             if (memberNameList[index] == null) {
                 System.out.println("Enter your name.");
-                Scanner sc2 = new Scanner(System.in);
-                String memberName = sc2.nextLine();
+                sc1.nextLine();
+                String memberName = sc1.nextLine();
                 memberNameList[index] = memberName;
             } else {
                 System.out.println("\n" + memberNameList[index] + " is typing.");
@@ -29,16 +29,16 @@ public class ChatMember {
 
     public int handleUserAction(String userAction, int index, String date, int memberSum, String[] memberNameList) {
 
-        Scanner sc4 = new Scanner(System.in);
+        Scanner sc3 = new Scanner(System.in);
         while (!Character.isDigit(userAction.charAt(0)) || Integer.parseInt(userAction) < 1 || Integer.parseInt(userAction) > 2) {
             System.out.println("Invalid input!");
-            userAction = sc4.nextLine();
+            userAction = sc3.nextLine();
         }
 
         switch (userAction) {
             case ("1"):
                 System.out.println("Send message.");
-                User user = new User(index, date, memberNameList[index], sc4.nextLine());
+                User user = new User(index, date, memberNameList[index], sc3.nextLine());
                 System.out.println(user);
                 break;
             case ("2"):
