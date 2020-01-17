@@ -1,3 +1,5 @@
+package model;
+
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,10 +12,11 @@ public class User {
         private String date;
         Format f = new SimpleDateFormat("mm-dd-yyyy hh:mm:ss");
 
-    public User(){}
-    public User(int id, String date, String name, String text) {
+        public User(){}
+
+    public User(int id, String name, String text) {
         this.id = id;
-        this.date = f.format(new Date());;
+        this.date = f.format(new Date());
         this.name = name;
         this.text = text;
     }
@@ -50,8 +53,7 @@ public class User {
             this.id = id;
         }
 
-    @Override
-    public String toString() {
-        return date + " (date) " + "member " + id +  "\n" + name + ": " + text;
-    }
+        public void printMassage(){
+            System.out.println(f.format(new Date()) + "  :" + "member " + id + "\n" + name + ": " + text);
+        }
 }

@@ -1,9 +1,10 @@
 
+import service.UserService;
 
 public class Main {
 
     public static void main(String[] args) {
-        ChatMember member = new ChatMember();
-        member.memberCall();
+        UserService user = new UserService();
+        user.memberCall();
     }
 }
