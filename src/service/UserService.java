@@ -1,10 +1,16 @@
 package service;
+
 import model.User;
+
 import java.util.Scanner;
 
 public class UserService {
 
-    User user = new User();
+    private User user;
+
+    public UserService(User user) {
+        this.user = user;
+    }
 
     public void memberCall() {
 
@@ -14,7 +20,7 @@ public class UserService {
         String[] memberNameList = new String[memberSum];
 
         while (memberSum > 0) {
-            int index = 1+(int)(Math.random()*memberSum - 1);
+            int index = 1 + (int) (Math.random() * memberSum - 1);
             if (memberNameList[index] == null) {
                 System.out.println("Enter your name.");
                 scanner.nextLine();
@@ -49,7 +55,7 @@ public class UserService {
                 user.printMassage();
                 break;
             case ("2"):
-                System.out.println( memberNameList[index] + " Exit chat.");
+                System.out.println(memberNameList[index] + " Exit chat.");
                 memberNameList[index] = null;
                 --memberSum;
                 break;
