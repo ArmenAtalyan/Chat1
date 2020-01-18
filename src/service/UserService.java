@@ -24,8 +24,8 @@ public class UserService {
                 System.out.println("\n" + memberNameList[index] + " is typing again.");
             }
             System.out.println("Press number for action." +
-                    "\n" + "'1' to send massage."
-                    + "\n" + "'2' to exit chat.");
+                    "\n" + "'1' to send massage." +
+                    "\n" + "'2' to exit chat.");
             memberSum = handleUserAction(scanner.next(), index, memberSum, memberNameList);
         }
     }
