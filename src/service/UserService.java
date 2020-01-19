@@ -1,6 +1,8 @@
 package service;
 import model.User;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UserService {
 
@@ -33,9 +35,7 @@ public class UserService {
     public int handleUserAction(String userAction, int index, int memberSum, String[] memberNameList) {
 
         Scanner scanner = new Scanner(System.in);
-        while (!Character.isDigit(userAction.charAt(0))
-                || Integer.parseInt(userAction) < 1
-                || Integer.parseInt(userAction) > 2) {
+        while (!isValid(userAction)) {
             System.out.println("Invalid input!");
             userAction = scanner.nextLine();
         }
@@ -55,5 +55,11 @@ public class UserService {
                 break;
         }
         return memberSum;
+    }
+    public boolean isValid(String inputString) {
+
+        Pattern pattern = Pattern.compile("([1-2])");
+        Matcher matcher = pattern.matcher(inputString);
+        return matcher.matches();
     }
 }
